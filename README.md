@@ -68,6 +68,8 @@ npm run build
 
 ## Despliegue
 
-El proyecto requiere alojar el frontend y el backend; publicar únicamente `frontend/dist` no proporciona las funciones de autenticación, progreso ni persistencia. El backend usa SQLite: el alojamiento debe ofrecer almacenamiento persistente y configurar `KIDCODE_DB_PATH` en ese volumen para conservar los datos después de reinicios o despliegues.
+Con `NODE_ENV=production`, el backend sirve también los archivos de `frontend/dist`; compila el frontend antes de iniciar el servidor. La API y la interfaz quedan bajo el mismo origen. `VITE_API_URL` puede establecerse durante el build si el frontend se aloja por separado.
 
 Antes de habilitar una URL pública, configura secretos propios, el código de invitación docente y los orígenes CORS permitidos. No se incluye una URL desplegada en este repositorio.
+
+El backend usa SQLite. Una demo alojada en un servicio gratuito con disco efímero puede perder cuentas y progreso al reiniciarse o dormir. Para conservarlos, configura `KIDCODE_DB_PATH` en un volumen persistente o migra a una base de datos administrada.

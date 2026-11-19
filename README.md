@@ -73,3 +73,21 @@ Con `NODE_ENV=production`, el backend sirve también los archivos de `frontend/d
 Antes de habilitar una URL pública, configura secretos propios, el código de invitación docente y los orígenes CORS permitidos. No se incluye una URL desplegada en este repositorio.
 
 El backend usa SQLite. Una demo alojada en un servicio gratuito con disco efímero puede perder cuentas y progreso al reiniciarse o dormir. Para conservarlos, configura `KIDCODE_DB_PATH` en un volumen persistente o migra a una base de datos administrada.
+
+### Iniciar y apagar la demo pública en Windows
+
+Desde PowerShell, en la carpeta del proyecto:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\start-demo.ps1
+```
+
+El script compila el frontend, inicia el backend y abre un Cloudflare Quick Tunnel. Comparte con tus invitados la URL `trycloudflare.com` que imprime; el computador debe permanecer encendido y conectado. La URL es temporal y puede cambiar cada vez que se inicia el túnel. El código de invitación docente se imprime en la consola: compártelo solo con las personas autorizadas a crear cuentas docentes.
+
+Para apagar ambos procesos sin borrar las cuentas ni el progreso:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\stop-demo.ps1
+```
+
+La configuración privada y la base SQLite de esta demo se guardan en `%LOCALAPPDATA%\KidCodeNeiva`; no se suben al repositorio. La primera ejecución necesita conexión a internet para descargar el cliente de Cloudflare Tunnel. Quick Tunnel es una opción temporal para pruebas, no un servicio de alojamiento con disponibilidad garantizada.

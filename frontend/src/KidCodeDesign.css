@@ -1,0 +1,2112 @@
+:root {
+  color-scheme: light;
+  --kid-ink: #17243b;
+  --kid-ink-soft: #34445f;
+  --kid-muted: #64728a;
+  --kid-canvas: #f5f6f8;
+  --kid-surface: #ffffff;
+  --kid-surface-soft: #f8f9fb;
+  --kid-border: #e0e4eb;
+  --kid-border-strong: #cbd3df;
+  --kid-primary: #4057bf;
+  --kid-primary-hover: #3449a8;
+  --kid-primary-soft: #edf0fc;
+  --kid-teal: #167c76;
+  --kid-teal-soft: #e8f5f2;
+  --kid-amber: #a76e12;
+  --kid-amber-soft: #fbf3df;
+  --kid-coral: #b94d48;
+  --kid-coral-soft: #fbefed;
+  --kid-info: #315a9a;
+  --kid-info-soft: #edf3fb;
+  --kid-font-display: 'Space Grotesk', 'DM Sans', sans-serif;
+  --kid-font-body: 'DM Sans', system-ui, sans-serif;
+  --kid-font-code: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+  --kid-space-1: 4px;
+  --kid-space-2: 8px;
+  --kid-space-3: 12px;
+  --kid-space-4: 16px;
+  --kid-space-5: 20px;
+  --kid-space-6: 24px;
+  --kid-space-8: 32px;
+  --kid-radius-sm: 8px;
+  --kid-radius-md: 12px;
+  --kid-radius-lg: 18px;
+  --kid-radius-xl: 24px;
+  --kid-shadow-sm: 0 1px 3px #17243b0b, 0 1px 2px #17243b08;
+  --kid-shadow-md: 0 8px 24px #17243b0d, 0 2px 6px #17243b08;
+  --kid-shadow-overlay: 0 24px 64px #101a2b33;
+  --kid-motion-fast: 160ms ease;
+  --kid-motion-normal: 220ms ease;
+  --kid-z-sticky: 20;
+  --kid-z-sidebar: 50;
+  --kid-z-modal: 90;
+}
+
+html {
+  background: var(--kid-canvas);
+  color: var(--kid-ink);
+  font-family: var(--kid-font-body);
+  scroll-behavior: smooth;
+}
+
+body,
+.app-shell {
+  min-height: 100vh;
+  background: var(--kid-canvas);
+  color: var(--kid-ink);
+  font-family: var(--kid-font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand-font,
+.stat-value {
+  color: var(--kid-ink);
+  font-family: var(--kid-font-display);
+  letter-spacing: -0.025em;
+}
+
+p,
+.muted,
+.stat-note {
+  color: var(--kid-muted);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #7186dc;
+  outline-offset: 3px;
+}
+
+.app-layout {
+  grid-template-columns: 252px minmax(0, 1fr);
+  background: var(--kid-canvas);
+}
+
+.sidebar {
+  z-index: var(--kid-z-sidebar);
+  border-right: 1px solid var(--kid-border);
+  background: var(--kid-surface);
+  color: var(--kid-ink);
+  box-shadow: 2px 0 12px #17243b05;
+}
+
+.sidebar .brand,
+.sidebar .brand span:last-child {
+  color: var(--kid-ink);
+}
+
+.brand {
+  font-family: var(--kid-font-display);
+  font-size: 18px;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e8d9ad;
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-amber-soft);
+  color: #82570e;
+  box-shadow: none;
+}
+
+.nav-label {
+  color: #78849a;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.nav-item {
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: var(--kid-radius-md);
+  color: var(--kid-ink-soft);
+  font-weight: 600;
+  transition: background var(--kid-motion-fast), border-color var(--kid-motion-fast), color var(--kid-motion-fast);
+}
+
+.nav-item:hover {
+  transform: none;
+  background: var(--kid-surface-soft);
+  color: var(--kid-primary);
+}
+
+.nav-item.active {
+  border-color: #dce2f7;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+  box-shadow: inset 3px 0 var(--kid-primary);
+}
+
+.nav-icon {
+  display: inline-grid;
+  place-items: center;
+  color: currentColor;
+}
+
+.nav-icon svg,
+.lucide-icon {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.8;
+}
+
+.profile-mini,
+.sidebar-bottom .profile-mini {
+  border-top-color: var(--kid-border);
+}
+
+.profile-mini span {
+  color: var(--kid-muted);
+}
+
+.topbar {
+  position: sticky;
+  z-index: var(--kid-z-sticky);
+  border-bottom: 1px solid var(--kid-border);
+  background: #ffffffed;
+  backdrop-filter: blur(12px);
+}
+
+.topbar-path {
+  color: var(--kid-muted);
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1440px;
+  padding: clamp(20px, 3vw, 36px);
+}
+
+.page-heading h1,
+.student-hero h1 {
+  letter-spacing: -0.04em;
+}
+
+.eyebrow,
+.feature-kicker,
+.game-modal-kicker {
+  color: var(--kid-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.stat-card,
+.panel,
+.game-card {
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-lg);
+  background: var(--kid-surface);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.panel {
+  padding: clamp(16px, 2vw, 24px);
+}
+
+.stat-card {
+  padding: 18px;
+}
+
+.stat-top,
+.stat-note {
+  color: var(--kid-muted);
+}
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-sm);
+  background: var(--kid-surface-soft);
+  color: var(--kid-primary);
+}
+
+.stat-value {
+  font-size: clamp(24px, 3vw, 30px);
+}
+
+.primary-btn,
+.secondary-btn,
+.quiet-btn,
+.danger-btn {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--kid-radius-md);
+  box-shadow: none;
+  font-weight: 700;
+  transition: color var(--kid-motion-fast), background var(--kid-motion-fast), border-color var(--kid-motion-fast), transform var(--kid-motion-fast), box-shadow var(--kid-motion-fast);
+}
+
+.primary-btn {
+  background: var(--kid-primary);
+  color: #fff;
+}
+
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: var(--kid-primary-hover);
+  box-shadow: 0 4px 10px #3449a822;
+}
+
+.secondary-btn {
+  border-color: #d9e0ed;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+.secondary-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #c5ceed;
+  background: #e4e9fa;
+}
+
+.quiet-btn {
+  border-color: var(--kid-border);
+  background: transparent;
+  color: var(--kid-ink-soft);
+}
+
+.danger-btn {
+  border-color: #f0d7d4;
+  background: var(--kid-coral-soft);
+  color: var(--kid-coral);
+}
+
+.primary-btn:active:not(:disabled),
+.secondary-btn:active:not(:disabled),
+.quiet-btn:active:not(:disabled),
+.danger-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: saturate(0.7);
+}
+
+input,
+select,
+textarea,
+.field input,
+.field select,
+.feature-modal input,
+.feature-page input:not([type=radio]),
+.feature-page select,
+.feature-page textarea,
+.academy-editor-form input,
+.academy-editor-form textarea,
+.academy-editor-form select {
+  min-height: 44px;
+  border: 1px solid var(--kid-border-strong);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-surface);
+  color: var(--kid-ink);
+  box-shadow: inset 0 1px 2px #17243b05;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #7d899d;
+}
+
+.alert {
+  border: 1px solid transparent;
+  border-radius: var(--kid-radius-md);
+  box-shadow: none;
+}
+
+.alert.error {
+  border-color: #efd4d0;
+  background: var(--kid-coral-soft);
+  color: #8e3531;
+}
+
+.alert.success {
+  border-color: #cde7df;
+  background: var(--kid-teal-soft);
+  color: #12645e;
+}
+
+.badge {
+  border: 1px solid #cfe7df;
+  background: var(--kid-teal-soft);
+  color: #12645e;
+}
+
+.empty-state {
+  color: var(--kid-muted);
+}
+
+.auth-layout {
+  min-height: 100vh;
+  background: var(--kid-canvas);
+}
+
+.auth-visual {
+  position: relative;
+  overflow: hidden;
+  background-color: #17243b;
+  background-image: linear-gradient(#ffffff08 1px, transparent 1px), linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-position: center;
+  background-size: 36px 36px;
+  color: #fff;
+}
+
+.auth-visual::after {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ffffff20;
+  background: #ffffff08;
+}
+
+.auth-visual .brand,
+.auth-visual .brand span:last-child {
+  color: #fff;
+}
+
+.auth-visual .brand-mark {
+  border-color: #ffffff38;
+  background: #ffffff12;
+  color: #f2cf79;
+}
+
+.visual-copy h1 {
+  color: #fff;
+  font-size: clamp(34px, 4vw, 56px);
+}
+
+.visual-copy p,
+.visual-footer {
+  color: #cad3e2;
+}
+
+.visual-art {
+  width: 104px;
+  height: 104px;
+  border: 1px solid #ffffff30;
+  border-radius: var(--kid-radius-xl);
+  background: #ffffff10;
+  box-shadow: none;
+  transform: none;
+}
+
+.auth-main {
+  background: var(--kid-canvas);
+}
+
+.visual-art {
+  display: grid;
+  place-items: center;
+  color: #e7edf7;
+}
+
+.visual-art svg {
+  width: 58px;
+  height: 58px;
+  stroke-width: 1.5;
+}
+
+.auth-card {
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-xl);
+  background: var(--kid-surface);
+  box-shadow: var(--kid-shadow-md);
+}
+
+.auth-card h2 {
+  color: var(--kid-ink);
+}
+
+.field label {
+  color: var(--kid-ink-soft);
+}
+
+.auth-switch {
+  color: var(--kid-muted);
+}
+
+.auth-switch button {
+  color: var(--kid-primary);
+}
+
+.student-hero {
+  position: relative;
+  min-height: 176px;
+  border: 1px solid #d5deef;
+  border-radius: var(--kid-radius-xl);
+  background: linear-gradient(115deg, #eaf0fb, #f8f9fc 75%);
+  color: var(--kid-ink);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.student-hero h1 {
+  color: var(--kid-ink);
+}
+
+.student-hero p {
+  color: var(--kid-muted);
+}
+
+.student-hero .eyebrow {
+  color: var(--kid-primary);
+}
+
+.student-hero::after {
+  width: 190px;
+  height: 190px;
+  border: 1px solid #4057bf1c;
+}
+
+.hero-mascot {
+  filter: drop-shadow(0 5px 8px #17243b18);
+}
+
+.student-rank-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--kid-space-3);
+  padding: 14px 18px;
+  border: 1px solid #eadbb5;
+  border-radius: var(--kid-radius-lg);
+  background: #fffdf8;
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.student-rank-emblem {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid #ebd9ad;
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-amber-soft);
+  color: var(--kid-amber);
+  box-shadow: none;
+}
+
+.rank-track,
+.feature-progress-track,
+.progress-track {
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7ebf1;
+}
+
+.rank-track i,
+.feature-progress-track i,
+.progress-fill {
+  border-radius: inherit;
+  background: var(--kid-teal);
+}
+
+.rank-requirement-list {
+  gap: 10px;
+}
+
+.rank-requirement {
+  min-height: 72px;
+  border-color: var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-surface-soft);
+}
+
+.rank-requirement.reached {
+  border-color: #cde7df;
+  background: var(--kid-teal-soft);
+}
+
+.rank-requirement strong {
+  color: var(--kid-ink-soft);
+}
+
+.rank-requirement.reached strong {
+  color: #12645e;
+}
+
+.game-card {
+  overflow: hidden;
+  transition: transform var(--kid-motion-normal), box-shadow var(--kid-motion-normal), border-color var(--kid-motion-normal);
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd3e7;
+  box-shadow: var(--kid-shadow-md);
+}
+
+.game-cover {
+  min-height: 150px;
+  background-image: none;
+}
+
+.game-cover.blue {
+  background-color: #eaf0fb;
+}
+
+.game-cover.purple {
+  background-color: #eff0f8;
+}
+
+.game-cover.green {
+  background-color: #eaf4f1;
+}
+
+.game-cover > span:first-child {
+  filter: none;
+}
+
+.game-cover-icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border: 1px solid #ffffffc9;
+  border-radius: var(--kid-radius-lg);
+  background: #ffffffc9;
+  color: var(--kid-primary);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.game-cover-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.7;
+}
+
+.game-level {
+  border: 1px solid var(--kid-border);
+  background: #ffffffed;
+  color: var(--kid-ink-soft);
+  box-shadow: none;
+}
+
+.game-details h3 {
+  color: var(--kid-ink);
+}
+
+.game-details p {
+  color: var(--kid-muted);
+}
+
+.game-card-cta,
+.game-details .game-card-cta {
+  color: var(--kid-primary);
+}
+
+.game-card-cta b {
+  font-size: 0;
+}
+
+.game-card-cta b::after {
+  content: 'Abrir';
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.game-details-overlay,
+.feature-overlay {
+  z-index: var(--kid-z-modal);
+  background: #121b2c80;
+  backdrop-filter: blur(3px);
+}
+
+.game-details-modal,
+.title-celebration-card,
+.feature-modal {
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-xl);
+  background: var(--kid-surface);
+  box-shadow: var(--kid-shadow-overlay);
+}
+
+.game-modal-banner {
+  border-radius: var(--kid-radius-xl) var(--kid-radius-xl) 0 0;
+  background: var(--kid-ink);
+}
+
+.game-modal-banner.blue,
+.game-modal-banner.purple,
+.game-modal-banner.green {
+  background: var(--kid-ink);
+}
+
+.game-modal-icon {
+  border: 1px solid #ffffff2a;
+  border-radius: var(--kid-radius-lg);
+  background: #ffffff12;
+  filter: none;
+}
+
+.game-modal-kicker {
+  color: #c5d0ed;
+}
+
+.game-modal-content {
+  background: var(--kid-surface);
+}
+
+.game-modal-description > div,
+.modal-level-choice,
+.modal-level-number {
+  border-color: var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-surface-soft);
+}
+
+.modal-level-choice:not(:disabled):hover,
+.modal-level-choice.selected {
+  border-color: #bfc9ec;
+  background: var(--kid-primary-soft);
+}
+
+.modal-level-choice.complete .modal-level-number {
+  background: var(--kid-teal-soft);
+  color: var(--kid-teal);
+}
+
+.game-play-button {
+  min-height: 48px;
+  font-size: 15px;
+}
+
+.student-avatar-button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--kid-border);
+  border-radius: 15px;
+  background: #eef2fb;
+  box-shadow: none;
+}
+
+.student-avatar-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.student-points,
+.student-rank-pill {
+  border: 1px solid #e9ddb9;
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-amber-soft);
+  color: #80560f;
+}
+
+.student-rank-pill {
+  border-color: #dce2f7;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+.animal-sidebar-avatar {
+  border: 1px solid #d9e1ef;
+  background: #eef2fb;
+  box-shadow: none;
+}
+
+.game-screen {
+  max-width: 1120px;
+}
+
+.game-toolbar {
+  gap: 12px;
+}
+
+.game-panel {
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-xl);
+  background: var(--kid-surface);
+  box-shadow: var(--kid-shadow-md);
+}
+
+.game-title-row h1 {
+  color: var(--kid-ink);
+}
+
+.game-subtitle,
+.stat-note {
+  color: var(--kid-muted);
+}
+
+.mission-banner,
+.notice,
+.stack-objective {
+  border: 1px solid #dce2f2;
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-info-soft);
+  color: var(--kid-ink-soft);
+}
+
+.board {
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-lg);
+  background: #f4f6f9;
+}
+
+.logic-tile,
+.network-tile,
+.patch-cell,
+.memory-lane,
+.stack-packet,
+.editor-line {
+  border-color: var(--kid-border);
+}
+
+.logic-tile,
+.network-tile,
+.patch-cell {
+  background-color: #fff;
+  color: var(--kid-ink-soft);
+}
+
+.logic-tile.tile-robot,
+.network-current,
+.patch-source,
+.patch-target {
+  border-color: #aab8e6;
+  background-color: var(--kid-primary-soft);
+  box-shadow: 0 0 0 2px #4057bf16;
+}
+
+.logic-tile.tile-route-planned,
+.network-tile.network-route-planned {
+  outline-color: #7186dc;
+  background-color: #edf0fc;
+  color: var(--kid-primary);
+}
+
+.logic-tile.tile-goal,
+.network-target {
+  border-color: #c7e4dc;
+  background: var(--kid-teal-soft);
+}
+
+.logic-tile.tile-wall,
+.patch-firewall,
+.network-down {
+  border-color: #d8dce3;
+  background: #e8eaee;
+  color: #596579;
+  box-shadow: none;
+}
+
+.command-chip,
+.action-card-button,
+.sequence-item {
+  min-height: 48px;
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-surface);
+  color: var(--kid-ink-soft);
+  box-shadow: var(--kid-shadow-sm);
+  font-family: var(--kid-font-code);
+  font-size: 13px;
+  transition: transform var(--kid-motion-fast), background var(--kid-motion-fast), border-color var(--kid-motion-fast), box-shadow var(--kid-motion-fast);
+}
+
+.command-chip:hover:not(:disabled),
+.sequence-item:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #bdc8e9;
+  background: var(--kid-primary-soft);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.command-chip:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.sequence-item.active-code-line {
+  border-color: #9eacdf;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+.code-editor,
+.editor-line,
+.debug-inspector,
+.console-panel {
+  border-radius: var(--kid-radius-md);
+}
+
+.code-editor,
+.editor-line code,
+.sequence-display {
+  font-family: var(--kid-font-code);
+}
+
+.console-panel {
+  border-color: #efd4d0;
+  background: var(--kid-coral-soft);
+  color: #8e3531;
+}
+
+.editor-line.line-bug {
+  background: #fbefed;
+  color: #8e3531;
+}
+
+.editor-line.debug-step-active {
+  background: var(--kid-info-soft);
+  box-shadow: inset 3px 0 var(--kid-info);
+}
+
+.diamond-counter {
+  border-color: #eadbb5;
+  background: var(--kid-amber-soft);
+  color: #80560f;
+}
+
+.result-overlay {
+  z-index: var(--kid-z-modal);
+  background: #121b2c80;
+  backdrop-filter: blur(3px);
+}
+
+.result-card {
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-xl);
+  background: var(--kid-surface);
+  box-shadow: var(--kid-shadow-overlay);
+}
+
+.result-diamonds {
+  color: var(--kid-amber);
+}
+
+.feature-page-heading h1,
+.learning-content h2 {
+  color: var(--kid-ink);
+}
+
+.feature-modal {
+  max-height: min(90vh, 900px);
+}
+
+.feature-close,
+.game-modal-close {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--kid-border);
+  background: var(--kid-surface);
+  color: var(--kid-ink-soft);
+}
+
+.profile-avatar,
+.workshop-orbit,
+.character-preview {
+  border: 1px solid var(--kid-border);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.shop-item,
+.lesson-card,
+.exam-card,
+.review-card,
+.teacher-review-card,
+.attempt-chip {
+  border-color: var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.shop-item.owned,
+.lesson-card.complete {
+  border-color: #cde7df;
+  background: #f5fbf9;
+}
+
+.avatar-tabs {
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-surface-soft);
+}
+
+.avatar-tabs button {
+  min-height: 44px;
+  border-radius: var(--kid-radius-sm);
+  color: var(--kid-muted);
+}
+
+.avatar-tabs button.active {
+  color: var(--kid-primary);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.learning-sections button,
+.academy-editor-nav button,
+.exam-question,
+.teacher-review-card {
+  border-color: var(--kid-border);
+  border-radius: var(--kid-radius-md);
+}
+
+.learning-sections button.active,
+.academy-editor-nav button.active {
+  border-color: #c3cdec;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+  box-shadow: none;
+}
+
+.learning-section-icon {
+  color: var(--kid-primary);
+}
+
+.certificate-card {
+  border-color: #cde7df;
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-teal-soft);
+}
+
+.teacher-dashboard .sidebar {
+  background: #fbfcfd;
+}
+
+.teacher-dashboard .main-content,
+.teacher-education {
+  font-size: 13px;
+}
+
+.data-table {
+  color: var(--kid-ink-soft);
+}
+
+.data-table th {
+  border-bottom: 1px solid var(--kid-border);
+  background: #f3f5f8;
+  color: #58667c;
+}
+
+.data-table td {
+  border-bottom-color: #e9ecf1;
+  color: var(--kid-ink-soft);
+}
+
+.data-table tr:hover td {
+  background: #f8f9fb;
+}
+
+.game-toggle-card,
+.student-adaptation select,
+.learning-alert,
+.cms-item {
+  border-color: var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-surface);
+}
+
+.learning-alert {
+  border-color: #eadbb5;
+  background: #fffaf0;
+}
+
+.learning-alert strong {
+  color: #80560f;
+}
+
+.mobile-menu {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--kid-border);
+  background: var(--kid-surface);
+  color: var(--kid-ink-soft);
+}
+
+.topbar-path span {
+  color: var(--kid-border-strong);
+}
+
+@media (max-width: 1050px) {
+  .games-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .app-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100dvh;
+    left: 0;
+    width: 252px;
+    overflow-y: auto;
+    transform: translateX(-105%);
+    transition: transform var(--kid-motion-normal);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .main-content {
+    padding: 22px 18px 36px;
+  }
+}
+
+@media (max-width: 720px) {
+  .student-hero {
+    min-height: 150px;
+    padding: 24px;
+  }
+
+  .student-hero::after {
+    right: 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .game-panel {
+    padding: 18px;
+  }
+
+  .game-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .topbar-actions {
+    gap: 6px;
+  }
+
+  .student-rank-pill,
+  .student-points {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 620px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    min-height: 190px;
+    padding: 22px;
+  }
+
+  .auth-visual .visual-copy h1 {
+    max-width: 520px;
+    font-size: 28px;
+  }
+
+  .auth-visual .visual-copy p,
+  .visual-footer {
+    display: none;
+  }
+
+  .visual-art {
+    width: 56px;
+    height: 56px;
+    margin: 10px 0;
+    border-radius: var(--kid-radius-md);
+  }
+
+  .auth-main {
+    padding: 18px;
+  }
+
+  .auth-card {
+    padding: 24px 20px;
+  }
+
+  .main-content {
+    padding: 18px 14px 30px;
+  }
+
+  .student-rank-pill {
+    display: none;
+  }
+
+  .games-grid,
+  .game-modal-description,
+  .learning-layout,
+  .avatar-workshop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .game-details-modal {
+    max-height: calc(100dvh - 20px);
+  }
+
+  .game-modal-banner {
+    min-height: 135px;
+    gap: 14px;
+    padding: 22px 18px;
+  }
+
+  .game-modal-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 36px;
+  }
+
+  .game-modal-content {
+    padding: 18px;
+  }
+
+  .modal-level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topbar {
+    height: auto;
+    min-height: 64px;
+    padding: 8px 12px;
+  }
+
+  .topbar-path {
+    font-size: 11px;
+  }
+
+  .student-points {
+    font-size: 9px;
+  }
+
+  .data-table {
+    min-width: 760px;
+  }
+
+  .teacher-dashboard .data-table {
+    min-width: 820px;
+  }
+}
+
+@media (max-width: 380px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-points {
+    display: none;
+  }
+
+  .student-hero {
+    padding: 18px;
+  }
+
+  .student-hero h1 {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+.secondary-btn svg,
+.stat-icon svg,
+.education-heading-icon svg,
+.feature-heading-art svg,
+.points-wallet svg,
+.profile-stat-grid svg,
+.shop-intro svg,
+.learning-section-icon svg,
+.lesson-example svg,
+.exam-heading svg,
+.certificate-card svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  stroke-width: 1.8;
+}
+
+.secondary-btn,
+.shop-intro > span,
+.exam-heading > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.student-table-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-table-avatar {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.student-table-email {
+  color: var(--kid-muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: var(--kid-space-4);
+}
+
+.filters-row input {
+  flex: 1 1 240px;
+}
+
+.filters-row select {
+  flex: 0 1 220px;
+}
+
+.report-footnote {
+  margin-top: 18px;
+  font-size: 11px;
+}
+
+.profile-stat-grid strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.education-heading-icon,
+.feature-heading-art {
+  flex: 0 0 auto;
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-lg);
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+  box-shadow: none;
+}
+
+.education-heading-icon svg,
+.feature-heading-art svg {
+  width: 28px;
+  height: 28px;
+}
+
+.feature-heading-art {
+  width: 58px;
+  height: 58px;
+}
+
+.feature-kicker {
+  color: var(--kid-primary);
+}
+
+.points-wallet {
+  border: 1px solid #eadbb5;
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-amber-soft);
+  color: #80560f;
+  box-shadow: var(--kid-shadow-sm);
+}
+
+.points-wallet small {
+  color: #806b42;
+}
+
+.feature-overlay {
+  padding: clamp(10px, 3vw, 24px);
+}
+
+.feature-modal {
+  width: min(660px, 100%);
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.shop-item-icon {
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-primary-soft);
+}
+
+.shop-intro {
+  border: 1px solid #eadbb5;
+  background: #fffaf0;
+}
+
+.shop-intro > span {
+  color: var(--kid-amber);
+}
+
+.lesson-example {
+  border: 1px solid #eadbb5;
+  border-radius: var(--kid-radius-md);
+  background: #fffaf0;
+}
+
+.lesson-example strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #80560f;
+}
+
+.exam-card {
+  border: 1px solid var(--kid-border);
+  background: var(--kid-surface-soft);
+}
+
+.certificate-card > span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #cde7df;
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-teal-soft);
+  color: var(--kid-teal);
+}
+
+.teacher-review-stars {
+  color: var(--kid-amber);
+}
+
+.teacher-review-tag {
+  border: 1px solid #dce2f7;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+.academy-editor-form input,
+.academy-editor-form textarea,
+.academy-editor-form select,
+.cms-item {
+  border-color: var(--kid-border-strong);
+  border-radius: var(--kid-radius-md);
+}
+
+.game-toggle-card input {
+  accent-color: var(--kid-primary);
+}
+
+.student-adaptation select {
+  min-height: 44px;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    visibility: hidden;
+    transition: transform var(--kid-motion-normal), visibility 0s linear 220ms;
+  }
+
+  .sidebar.mobile-open {
+    visibility: visible;
+    transition: transform var(--kid-motion-normal), visibility 0s;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    z-index: calc(var(--kid-z-sidebar) - 1);
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #101a2b66;
+  }
+}
+
+@media (max-width: 620px) {
+  .filters-row > *,
+  .filters-row select {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .feature-page-heading {
+    align-items: flex-start;
+  }
+
+  .feature-heading-art {
+    width: 48px;
+    height: 48px;
+  }
+
+  .teacher-dashboard .main-content {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .teacher-dashboard .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 380px) {
+  .teacher-dashboard .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auth-main {
+  position: relative;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--kid-border);
+  border-radius: var(--kid-radius-md);
+  background: var(--kid-surface);
+  color: var(--kid-ink-soft);
+  box-shadow: var(--kid-shadow-sm);
+  font-size: 12px;
+  font-weight: 700;
+  transition: color var(--kid-motion-fast), background var(--kid-motion-fast), border-color var(--kid-motion-fast), transform var(--kid-motion-fast);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--kid-primary);
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.auth-theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.game-toolbar .theme-toggle {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 620px) {
+  .auth-theme-toggle {
+    top: 12px;
+    right: 12px;
+  }
+
+  .auth-theme-toggle .theme-toggle-label {
+    display: none;
+  }
+
+  .topbar-actions .theme-toggle-label {
+    display: none;
+  }
+
+  .game-toolbar .theme-toggle-label {
+    display: none;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --kid-ink: #f0f4fb;
+  --kid-ink-soft: #d3deed;
+  --kid-muted: #b0bfd3;
+  --kid-canvas: #101827;
+  --kid-surface: #182437;
+  --kid-surface-soft: #202f45;
+  --kid-border: #33445d;
+  --kid-border-strong: #4a5d77;
+  --kid-primary: #a4b2ff;
+  --kid-primary-hover: #bac4ff;
+  --kid-primary-soft: #29375a;
+  --kid-teal: #70d7c3;
+  --kid-teal-soft: #203d3b;
+  --kid-amber: #f2c56b;
+  --kid-amber-soft: #3d3424;
+  --kid-coral: #ff9b91;
+  --kid-coral-soft: #402c2d;
+  --kid-info: #9dbdff;
+  --kid-info-soft: #253850;
+  --kid-shadow-sm: 0 1px 3px #00000030, 0 1px 2px #00000024;
+  --kid-shadow-md: 0 8px 24px #00000035, 0 2px 6px #00000024;
+  --kid-shadow-overlay: 0 24px 64px #00000080;
+}
+
+html[data-theme='dark'],
+html[data-theme='dark'] body,
+html[data-theme='dark'] .app-shell {
+  background: var(--kid-canvas);
+  color: var(--kid-ink);
+}
+
+html[data-theme='dark'] .sidebar,
+html[data-theme='dark'] .topbar,
+html[data-theme='dark'] .auth-main,
+html[data-theme='dark'] .auth-card,
+html[data-theme='dark'] .stat-card,
+html[data-theme='dark'] .panel,
+html[data-theme='dark'] .game-card,
+html[data-theme='dark'] .game-panel,
+html[data-theme='dark'] .game-details-modal,
+html[data-theme='dark'] .feature-modal,
+html[data-theme='dark'] .result-card {
+  border-color: var(--kid-border);
+  background-color: var(--kid-surface);
+  color: var(--kid-ink);
+  box-shadow: var(--kid-shadow-sm);
+}
+
+html[data-theme='dark'] h1,
+html[data-theme='dark'] h2,
+html[data-theme='dark'] h3,
+html[data-theme='dark'] h4,
+html[data-theme='dark'] .game-details h3,
+html[data-theme='dark'] .stat-value,
+html[data-theme='dark'] .profile-hero h2,
+html[data-theme='dark'] .learning-content h2,
+html[data-theme='dark'] .exam-heading h3,
+html[data-theme='dark'] .shop-intro h2 {
+  color: var(--kid-ink);
+}
+
+html[data-theme='dark'] p,
+html[data-theme='dark'] .muted,
+html[data-theme='dark'] .stat-note,
+html[data-theme='dark'] .page-heading p,
+html[data-theme='dark'] .game-details p,
+html[data-theme='dark'] .profile-hero p,
+html[data-theme='dark'] .feature-page-heading p,
+html[data-theme='dark'] .learning-content > p,
+html[data-theme='dark'] .lesson-card > p,
+html[data-theme='dark'] .lesson-example p {
+  color: var(--kid-muted);
+}
+
+html[data-theme='dark'] .sidebar {
+  background: #141f31;
+}
+
+html[data-theme='dark'] .sidebar .brand,
+html[data-theme='dark'] .sidebar .brand span:last-child {
+  color: var(--kid-ink);
+}
+
+html[data-theme='dark'] .nav-item {
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .nav-item:hover {
+  background: #24334a;
+  color: var(--kid-primary);
+}
+
+html[data-theme='dark'] .nav-item.active {
+  border-color: #3a4a70;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+html[data-theme='dark'] .nav-label,
+html[data-theme='dark'] .topbar-path,
+html[data-theme='dark'] .feature-label,
+html[data-theme='dark'] .modal-level-choice,
+html[data-theme='dark'] .game-subtitle,
+html[data-theme='dark'] .game-meta {
+  color: var(--kid-muted);
+}
+
+html[data-theme='dark'] .topbar {
+  border-bottom-color: var(--kid-border);
+  background: #141f31ed;
+}
+
+html[data-theme='dark'] .student-hero {
+  border-color: #354765;
+  background: linear-gradient(115deg, #1d2c49, #1b2a3c 75%);
+}
+
+html[data-theme='dark'] .game-modal-banner {
+  background: linear-gradient(115deg, #253653, #344976);
+}
+
+html[data-theme='dark'] .game-modal-banner h2,
+html[data-theme='dark'] .game-modal-banner div > span:last-child {
+  color: #f0f4fb;
+}
+
+html[data-theme='dark'] .game-modal-kicker {
+  color: #c5d0ed;
+}
+
+html[data-theme='dark'] .student-rank-banner,
+html[data-theme='dark'] .profile-rank-progress,
+html[data-theme='dark'] .profile-stat-grid > div,
+html[data-theme='dark'] .learning-sections button,
+html[data-theme='dark'] .lesson-card,
+html[data-theme='dark'] .exam-card,
+html[data-theme='dark'] .exam-question,
+html[data-theme='dark'] .teacher-review-card,
+html[data-theme='dark'] .shop-item {
+  border-color: var(--kid-border);
+  background: var(--kid-surface-soft);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .student-rank-banner,
+html[data-theme='dark'] .student-rank-emblem,
+html[data-theme='dark'] .student-points,
+html[data-theme='dark'] .points-wallet {
+  border-color: #66573a;
+  background: var(--kid-amber-soft);
+  color: var(--kid-amber);
+}
+
+html[data-theme='dark'] .student-rank-pill,
+html[data-theme='dark'] .nav-item.active,
+html[data-theme='dark'] .rank-requirement.reached,
+html[data-theme='dark'] .learning-sections button.active,
+html[data-theme='dark'] .academy-editor-nav button.active,
+html[data-theme='dark'] .review-tags button.selected {
+  border-color: #465782;
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+html[data-theme='dark'] .rank-track,
+html[data-theme='dark'] .feature-progress-track,
+html[data-theme='dark'] .progress-track {
+  background: #35445a;
+}
+
+html[data-theme='dark'] .rank-track i,
+html[data-theme='dark'] .feature-progress-track i,
+html[data-theme='dark'] .progress-fill {
+  background: var(--kid-teal);
+}
+
+html[data-theme='dark'] .rank-requirement,
+html[data-theme='dark'] .shop-item,
+html[data-theme='dark'] .lesson-card,
+html[data-theme='dark'] .teacher-review-card,
+html[data-theme='dark'] .attempt-chip,
+html[data-theme='dark'] .game-toggle-card,
+html[data-theme='dark'] .cms-item {
+  border-color: var(--kid-border);
+  background: var(--kid-surface);
+}
+
+html[data-theme='dark'] .rank-requirement.reached,
+html[data-theme='dark'] .shop-item.owned,
+html[data-theme='dark'] .lesson-card.complete,
+html[data-theme='dark'] .certificate-card,
+html[data-theme='dark'] .badge {
+  border-color: #345b54;
+  background: var(--kid-teal-soft);
+  color: var(--kid-teal);
+}
+
+html[data-theme='dark'] .primary-btn {
+  border-color: #8395ef;
+  background: #7185e8;
+  color: #101827;
+}
+
+html[data-theme='dark'] .primary-btn:hover:not(:disabled) {
+  background: #91a1f2;
+  color: #101827;
+}
+
+html[data-theme='dark'] .secondary-btn,
+html[data-theme='dark'] .quiet-btn {
+  border-color: var(--kid-border-strong);
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+html[data-theme='dark'] .danger-btn {
+  border-color: #684343;
+  background: var(--kid-coral-soft);
+  color: var(--kid-coral);
+}
+
+html[data-theme='dark'] input,
+html[data-theme='dark'] select,
+html[data-theme='dark'] textarea,
+html[data-theme='dark'] .field input,
+html[data-theme='dark'] .field select,
+html[data-theme='dark'] .feature-modal input,
+html[data-theme='dark'] .feature-page input:not([type=radio]),
+html[data-theme='dark'] .feature-page select,
+html[data-theme='dark'] .feature-page textarea,
+html[data-theme='dark'] .academy-editor-form input,
+html[data-theme='dark'] .academy-editor-form textarea,
+html[data-theme='dark'] .academy-editor-form select,
+html[data-theme='dark'] .student-adaptation select {
+  border-color: var(--kid-border-strong);
+  background: #131e2f;
+  color: var(--kid-ink);
+  box-shadow: none;
+}
+
+html[data-theme='dark'] input::placeholder,
+html[data-theme='dark'] textarea::placeholder {
+  color: #9aabc1;
+}
+
+html[data-theme='dark'] .game-card,
+html[data-theme='dark'] .game-panel,
+html[data-theme='dark'] .panel {
+  background: var(--kid-surface);
+}
+
+html[data-theme='dark'] .game-cover.blue,
+html[data-theme='dark'] .game-cover.purple,
+html[data-theme='dark'] .game-cover.green,
+html[data-theme='dark'] .game-cover {
+  background-color: #24344e;
+}
+
+html[data-theme='dark'] .game-cover-icon,
+html[data-theme='dark'] .game-level,
+html[data-theme='dark'] .game-details-overlay .modal-level-choice,
+html[data-theme='dark'] .modal-level-choice,
+html[data-theme='dark'] .modal-level-number {
+  border-color: var(--kid-border);
+  background: var(--kid-surface-soft);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .game-details-modal,
+html[data-theme='dark'] .feature-modal,
+html[data-theme='dark'] .result-card {
+  background: var(--kid-surface);
+}
+
+html[data-theme='dark'] .game-modal-content {
+  background: var(--kid-surface);
+}
+
+html[data-theme='dark'] .game-modal-description > div,
+html[data-theme='dark'] .modal-level-choice,
+html[data-theme='dark'] .exam-question,
+html[data-theme='dark'] .lesson-card {
+  border-color: var(--kid-border);
+  background: var(--kid-surface-soft);
+}
+
+html[data-theme='dark'] .game-modal-description p,
+html[data-theme='dark'] .exam-question label,
+html[data-theme='dark'] .exam-heading > span,
+html[data-theme='dark'] .lesson-card > p {
+  color: var(--kid-muted);
+}
+
+html[data-theme='dark'] .game-live-stats > span,
+html[data-theme='dark'] .network-route-legend span {
+  border: 1px solid var(--kid-border);
+  background: var(--kid-surface-soft);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .profile-stat-grid strong,
+html[data-theme='dark'] .shop-item strong,
+html[data-theme='dark'] .workshop-pet strong,
+html[data-theme='dark'] .teacher-review-top strong,
+html[data-theme='dark'] .attempt-chip strong,
+html[data-theme='dark'] .game-toggle-card strong {
+  color: var(--kid-ink);
+}
+
+html[data-theme='dark'] .profile-stat-grid span,
+html[data-theme='dark'] .shop-item > span,
+html[data-theme='dark'] .workshop-pet > span,
+html[data-theme='dark'] .profile-rank-copy span,
+html[data-theme='dark'] .teacher-review-game,
+html[data-theme='dark'] .attempt-chip span,
+html[data-theme='dark'] .attempt-chip small,
+html[data-theme='dark'] .game-toggle-card small {
+  color: var(--kid-muted);
+}
+
+html[data-theme='dark'] .game-toggle-card > b {
+  color: var(--kid-teal);
+}
+
+html[data-theme='dark'] .game-toggle-card:has(input:not(:checked)) > b {
+  color: var(--kid-coral);
+}
+
+html[data-theme='dark'] .common-mistakes,
+html[data-theme='dark'] .shop-shortage {
+  color: var(--kid-amber);
+}
+
+html[data-theme='dark'] .badge {
+  border-color: #345b54;
+  background: var(--kid-teal-soft);
+  color: var(--kid-teal);
+}
+
+html[data-theme='dark'] .game-screen .board,
+html[data-theme='dark'] .board {
+  border-color: var(--kid-border);
+  background: #131e2f;
+}
+
+html[data-theme='dark'] .logic-tile,
+html[data-theme='dark'] .network-tile,
+html[data-theme='dark'] .patch-cell,
+html[data-theme='dark'] .memory-lane,
+html[data-theme='dark'] .stack-packet,
+html[data-theme='dark'] .editor-line,
+html[data-theme='dark'] .code-editor,
+html[data-theme='dark'] .debug-inspector {
+  border-color: var(--kid-border);
+  background-color: var(--kid-surface-soft);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .logic-tile.tile-robot,
+html[data-theme='dark'] .network-current,
+html[data-theme='dark'] .patch-source,
+html[data-theme='dark'] .patch-target,
+html[data-theme='dark'] .logic-tile.tile-route-planned,
+html[data-theme='dark'] .network-tile.network-route-planned,
+html[data-theme='dark'] .active-code-line,
+html[data-theme='dark'] .editor-line.debug-step-active {
+  border-color: #7385d6;
+  background-color: #2b3a5b;
+  color: #c1ccff;
+}
+
+html[data-theme='dark'] .logic-tile.tile-goal,
+html[data-theme='dark'] .network-target {
+  border-color: #438577;
+  background: #24463f;
+}
+
+html[data-theme='dark'] .logic-tile.tile-wall,
+html[data-theme='dark'] .patch-firewall,
+html[data-theme='dark'] .network-down {
+  border-color: #526176;
+  background: #303b4b;
+  color: #d0d8e4;
+}
+
+html[data-theme='dark'] .command-chip,
+html[data-theme='dark'] .action-card-button,
+html[data-theme='dark'] .sequence-item {
+  border-color: var(--kid-border-strong);
+  background: #202f45;
+  color: var(--kid-ink-soft);
+  box-shadow: none;
+}
+
+html[data-theme='dark'] .command-chip:hover:not(:disabled),
+html[data-theme='dark'] .sequence-item:hover:not(:disabled) {
+  border-color: #7385d6;
+  background: #2b3a5b;
+}
+
+html[data-theme='dark'] .console-panel,
+html[data-theme='dark'] .editor-line.line-bug,
+html[data-theme='dark'] .alert.error {
+  border-color: #684343;
+  background: var(--kid-coral-soft);
+  color: #ffd0ca;
+}
+
+html[data-theme='dark'] .mission-banner,
+html[data-theme='dark'] .notice,
+html[data-theme='dark'] .stack-objective {
+  border-color: #3b5273;
+  background: var(--kid-info-soft);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .data-table th {
+  border-bottom-color: var(--kid-border);
+  background: #202f45;
+  color: var(--kid-muted);
+}
+
+html[data-theme='dark'] .data-table td {
+  border-bottom-color: var(--kid-border);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .data-table tr:hover td {
+  background: #202f45;
+}
+
+html[data-theme='dark'] .learning-sections button,
+html[data-theme='dark'] .academy-editor-nav button,
+html[data-theme='dark'] .review-tags button,
+html[data-theme='dark'] .pet-choice {
+  border-color: var(--kid-border);
+  background: var(--kid-surface-soft);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .shop-intro,
+html[data-theme='dark'] .lesson-example,
+html[data-theme='dark'] .learning-alert {
+  border-color: #66573a;
+  background: #302b22;
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .feature-kicker,
+html[data-theme='dark'] .eyebrow {
+  color: #aab8ff;
+}
+
+html[data-theme='dark'] .feature-overlay,
+html[data-theme='dark'] .game-details-overlay,
+html[data-theme='dark'] .result-overlay {
+  background: #070d18c9;
+}
+
+html[data-theme='dark'] .feature-close,
+html[data-theme='dark'] .game-modal-close,
+html[data-theme='dark'] .mobile-menu,
+html[data-theme='dark'] .theme-toggle {
+  border-color: var(--kid-border-strong);
+  background: var(--kid-surface-soft);
+  color: var(--kid-ink-soft);
+}
+
+html[data-theme='dark'] .feature-close:hover,
+html[data-theme='dark'] .game-modal-close:hover,
+html[data-theme='dark'] .theme-toggle:hover {
+  border-color: var(--kid-primary);
+  background: var(--kid-primary-soft);
+  color: var(--kid-primary);
+}
+
+html[data-theme='dark'] .auth-layout,
+html[data-theme='dark'] .auth-main {
+  background: var(--kid-canvas);
+}
+
+html[data-theme='dark'] .auth-visual {
+  background-color: #121d30;
+  background-image: linear-gradient(#ffffff09 1px, transparent 1px), linear-gradient(90deg, #ffffff09 1px, transparent 1px), radial-gradient(ellipse at 82% 18%, #5269c033, transparent 42%);
+}
+
+html[data-theme='dark'] .auth-card {
+  border-color: var(--kid-border);
+}
+
+html[data-theme='dark'] .alert.success {
+  border-color: #345b54;
+  background: var(--kid-teal-soft);
+  color: #a4eddd;
+}
+
+html[data-theme='dark'] .badge-warning,
+html[data-theme='dark'] .learning-alert {
+  border-color: #66573a;
+  background: var(--kid-amber-soft);
+  color: var(--kid-amber);
+}
+
+.network-tile.network-route-planned {
+  z-index: 1;
+  border-color: #7167c9;
+  outline: 3px solid #7167c9;
+  outline-offset: -4px;
+  background: #eeedff;
+  color: #40388c;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #bbb5f2;
+}
+
+.network-tile.network-route-current {
+  z-index: 2;
+  border-color: #4057bf;
+  outline-color: #4057bf;
+  background: #dce7ff;
+  color: #263c98;
+  box-shadow: inset 0 0 0 3px #fff, 0 0 0 4px #4057bf;
+}
+
+html[data-theme='dark'] .game-guide-card {
+  border-color: #d7deea;
+  background: #ffffff;
+  color: #17243b;
+}
+
+html[data-theme='dark'] .game-guide-card h2 {
+  color: #293e60;
+}
+
+html[data-theme='dark'] .game-guide-card p {
+  color: #52647e;
+}
+
+html[data-theme='dark'] .game-guide-progress {
+  color: #4e6385;
+}
+
+html[data-theme='dark'] .game-guide-target-note {
+  color: #705719;
+}
+
+html[data-theme='dark'] .network-tile.network-route-planned {
+  border-color: #b3aaff;
+  outline-color: #a79bf8;
+  background: #30345b;
+  color: #f0edff;
+  box-shadow: 0 0 0 2px #182437, 0 0 0 5px #8f83e7;
+}
+
+html[data-theme='dark'] .network-tile.network-route-current {
+  border-color: #c1ccff;
+  outline-color: #c1ccff;
+  background: #3a4b78;
+  color: #ffffff;
+  box-shadow: inset 0 0 0 3px #202f45, 0 0 0 5px #c1ccff;
+}

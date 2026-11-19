@@ -1,0 +1,16 @@
+node_modules/
+**/node_modules/
+**/dist/
+**/.env
+**/.env.*
+!**/.env.example
+**/kidcode.db*
+**/*.sqlite
+**/*.sqlite3
+coverage/
+logs/
+*.log
+.DS_Store
+*.pdf
+*.docx
+/PROYECTO KIDCODE/

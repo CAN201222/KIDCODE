@@ -1,0 +1,24 @@
+.common-mistakes{display:inline-block;max-width:190px;color:#8a5a32;font-size:11px;line-height:1.45}
+.attempt-list{display:grid;gap:7px;min-width:190px}
+.attempt-chip{display:grid;gap:3px;padding:8px 10px;border:1px solid #e7ecf3;border-radius:9px;background:#fafbfe;font-size:11px}
+.attempt-chip strong{color:#334963}
+.attempt-chip span,.attempt-chip small{color:#6e7c91;line-height:1.45}
+.attempt-chip.attempt-success{border-color:#d6eddf;background:#f4fbf6}
+.attempt-chip.attempt-failed{border-color:#f0d7d2;background:#fff8f6}
+.game-controls-panel{margin-bottom:18px}
+.game-toggle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.game-toggle-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:13px;border:1px solid #e4eaf3;border-radius:12px;background:#fafbfe}
+.game-toggle-card>span{display:grid;gap:4px}
+.game-toggle-card strong{font-size:12px;color:#334963}
+.game-toggle-card small{font-size:10px;color:#8591a3}
+.game-toggle-card input{grid-column:2;grid-row:1;width:38px;height:21px;accent-color:#5579ca;cursor:pointer}
+.game-toggle-card input:disabled{cursor:wait}
+.game-toggle-card>b{grid-column:2;grid-row:2;text-align:center;color:#47845e;font-size:9px}
+.game-toggle-card:has(input:not(:checked))>b{color:#a46b53}
+.student-adaptation{display:grid;min-width:175px;gap:8px}
+.student-adaptation select{width:100%;padding:7px;border:1px solid #dfe5ef;border-radius:8px;background:#fff;color:#405470;font-size:11px}
+.learning-alert{display:grid;gap:5px;padding:9px;border:1px solid #f1d59b;border-radius:9px;background:#fff9e9}
+.learning-alert strong{color:#8e6416;font-size:10px}
+.learning-alert span{color:#8f7951;font-size:9px;line-height:1.4}
+.learning-alert button{padding:6px;border:0;border-radius:7px;background:#f2e3bf;color:#735419;font-size:9px;font-weight:700}
+@media(max-width:720px){.game-toggle-grid{grid-template-columns:1fr}.student-adaptation{min-width:145px}}
